@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Package Calculator</title>
+    <style>
+        body {
+            font-family: 'Tahoma', sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            color: #4169e1;
+            font-size: 24px;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .label, .input {
+            flex: 1;
+            padding: 5px;
+        }
+        input[type=number], input[type=submit] {
+            padding: 5px;
+            width: 100%;
+            border: 1px solid #4169e1;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        input[type=submit] {
+            background-color: #4169e1;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type=submit]:hover {
+            background-color: #3a5fcd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kings of Sales&nbsp;</h1>
+        <h2>Team: Mr. Sawaf ..........................................By Shreef Ammar</h2>
+        <form method="post" action="/">
+            <div class="row">
+                <div class="column"><span class="label"><strong>Pax</strong>:</span>
+              <input type="number" name="pax" placeholder="Pax"></div>
+            </div>
+            <div class="row">
+                <div class="column"><span class="label"><strong>Airport Price L.E :</strong></span>
+              <input type="number" name="airport_price" placeholder="Airport Price"></div>
+                <div class="column"><span class="label"><strong>How Many Airports:</strong></span>
+              <input type="number" name="how_many_airports" placeholder="How Many Airports"></div>
+            </div>
+            <div class="row">
+                <div class="column"><span class="label"><strong>Sightseeings&nbsp; :</strong></span>
+              <input type="number" name="sightseeing" placeholder="Sightseeing"></div>
+                <div class="column"><span class="label"><strong>Sightseeing Value L.E :</strong></span>
+              <input type="number" name="sightseeing_value" placeholder="Sightseeing Value"></div>
+            </div>
+            <div class="row">
+				         <div class="column"><span class="label"><strong>Cairo Nights :</strong></span>
+              <input type="number" name="cairo_nights" placeholder="Cairo Nights"></div>
+                <div class="column"><span class="label"><strong>Cairo Accommodation USD:</strong></span>
+              <input type="number" name="cairo_accommodation" placeholder="Cairo Accommodation"></div>
+            </div>
+            <div class="row">
+				     <div class="column"><span class="label"><strong>Luxor Nights:</strong></span>
+	          <input type="number" name="luxor_nights" placeholder="Luxor Nights"></div>
+                <div class="column"><span class="label"><strong>Luxor Accommodation USD:</strong></span>
+              <input type="number" name="luxor_accommodation" placeholder="Luxor Accommodation"></div>
+            </div>
+            <div class="row">
+				 <div class="column"><span class="label"><strong>Aswan Nights:</strong></span>
+		      <input type="number" name="aswan_nights" placeholder="Aswan Nights"></div>
+                <div class="column"><span class="label"><strong>Aswan Accommodation USD:</strong></span>
+              <input type="number" name="aswan_accommodation" placeholder="Aswan Accommodation"></div>
+            </div>
+            <div class="row">
+			    <div class="column"><span class="label"><strong>Hurghada Nights:</strong></span>
+		      <input type="number" name="hurghada_nights" placeholder="Hurghada Nights"></div>
+                <div class="column"><span class="label"><strong>Hurghada Accommodation USD:</strong></span>
+              <input type="number" name="hurghada_accommodation" placeholder="Hurghada Accommodation"></div>
+            </div>
+            <div class="row">
+				<div class="column"><span class="label"><strong>Cruise Nights:</strong></span>
+			  <input type="number" name="cruise_nights" placeholder="Cruise Nights"></div>
+                <div class="column"><span class="label"><strong>Cruise Accommodation USD:</strong></span>
+              <input type="number" name="cruise_accommodation" placeholder="Cruise Accommodation"></div>
+            </div>
+            <div class="row">
+				  <div class="column"><span class="label"><strong>Other Transfers L.E:&nbsp;</strong></span>
+              <input type="number" name="other_transfers" placeholder="Other Transfers"></div>
+                <div class="column"><span class="label"><strong>Lunch L.E&nbsp; &nbsp; &nbsp; &nbsp; (Total):</strong></span>
+              <input type="number" name="lunch" placeholder="Lunch"></div>
+            </div>
+            <div class="row">
+                <div class="column"><span class="label"><strong>Entrance Tickets L.E ( Total)&nbsp; :</strong></span>
+                <input type="number" name="tickets" placeholder="Tickets"></div>
+<div class="column"><span class="label"><strong>Flights USD :</strong></span>
+  <input type="number" name="flights" placeholder="Flights"></div>
+            </div>
+            <p><strong>Guide&nbsp; &amp; Leaders L.E</strong></p>
+		  <div class="row">
+  <div class="column">
+				
+        <input type="number" name="guide" placeholder="Guide">
+</div>
+            <div class="column"><input type="number" name="leader" placeholder="Leader"></div>
+      </div>
+			 <span class="column"></span>
+            <div class="row">
+              <div class="column"><span class="label"><strong>Other Options ( Total By USD ):</strong></span>
+              <input type="number" name="other_options" placeholder="Other Options"></div>
+                <div class="column"></div>
+          </div>
+            <input type="submit" value="Calculate">
+        </form>
+    </div>
+	
+<div id="result" style="color: red; font-weight: bold;"></div>
+</body>
+	
+	<script>
+    document.querySelector('form').onsubmit = function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        fetch('/', {
+            method: 'post',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(text => {
+            document.getElementById('result').innerText = text;
+        });
+    };
+</script>
+
+</html>
